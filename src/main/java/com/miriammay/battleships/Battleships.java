@@ -48,6 +48,7 @@ public class Battleships {
                 System.out.println("Continue game? N for no");
                 choice = input.next();
                 if(choice.toLowerCase().equals("n")){
+                    System.out.println("Goodbye!");
                     exit = false;
                 }
             }
