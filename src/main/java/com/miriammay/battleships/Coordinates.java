@@ -60,8 +60,8 @@ public class Coordinates {
    }
    
    public String getUserCoordinates(){
-       boolean correctFirst = false;
-       boolean correctSecond = false;
+       boolean correctFirst;
+       boolean correctSecond;
        boolean exit = true;
        String answer = "";
        Scanner input = new Scanner(System.in);
@@ -118,7 +118,7 @@ public class Coordinates {
    
    public int[] guess(String g){
        int[] nextGuess = new int[2];
-       String subg = "";
+       String subg;
        char coord = g.charAt(0);
        int f = (int)this.map.get(coord);
        

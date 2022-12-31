@@ -10,9 +10,12 @@ package com.miriammay.battleships;
  */
 public class Board {
     
-    String[][] board = new String[10][10];
-    String[] letters = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+   
+    private  String[][] board = new String[10][10];
+    private String[] letters = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
     public int hits = 0;
+    public int tries = 0;
+    private int[][] guesses = new int[100][2];
     
     
     public void initialiseBoard(){
@@ -44,14 +47,31 @@ public class Board {
     public void updateBoard(int[] guess, boolean hit){
         int x = guess[0]-1;
         int y = guess[1]-1;
-        if (hit){
+        boolean triedBefore = false;
+        
+        for (int[] possibleGuess: this.guesses){
+            if (guess[0] == possibleGuess[0] && guess[1] == possibleGuess[1]){
+                triedBefore = true;
+            }
+        }
+        
+        if(triedBefore){
+            System.out.println("You have tried this coordinate before");
+            drawBoard();
+            return;
+        }
+        else if (hit){
             this.board[x][y] = "[!]";
             this.hits++;
         }
         else {
             this.board[x][y] = "[x]";
         }
+        this.guesses[this.tries][0] = guess[0];
+        this.guesses[this.tries][1] = guess[1];
+        
         drawBoard();
+        this.tries++;
         
     }
     
