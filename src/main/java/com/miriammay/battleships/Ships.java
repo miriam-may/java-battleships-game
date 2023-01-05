@@ -9,11 +9,11 @@ import java.util.Random;
  * @author Miriam Smith
  */
 public class Ships {
-    //private final int CARRIER = 5;
-    //private final int BATTLESHIP = 4;
-    //private final int CRUISER = 3;
-    //private final int SUBMARINE = 3;
-    //private final int DESTROYER = 2;
+    //CARRIER size = 5
+    //BATTLESHIP size = 4
+    //CRUISER size = 3
+    //SUBMARINE size = 3
+    //DESTROYER size = 2
     
     
     
@@ -22,25 +22,25 @@ public class Ships {
         Random random = new Random();
         
         //set first random start position
-        int carrierNum = (random.nextInt(10)-1);
+        int carrierNum = (random.nextInt(5)+1);
         
         //create variables for other random start positions
-        int battleshipNum = (random.nextInt(10)-1);
-        int cruiserNum = (random.nextInt(10)-1);
-        int subNum = (random.nextInt(10)-1);
-        int destroyerNum = (random.nextInt(10)-1);
+        int battleshipNum = (random.nextInt(4)+1);
+        int cruiserNum = (random.nextInt(4)+1);
+        int subNum = (random.nextInt(4)+1);
+        int destroyerNum = (random.nextInt(4)+1);
         
         //go through each ship, making sure each has a unique random number
         do {
             if (battleshipNum == carrierNum){
-                    battleshipNum = (random.nextInt(10)-1);
+                    battleshipNum = (random.nextInt(5)+1);
             }
         } while(battleshipNum==carrierNum);
         
         
         do {
             if (cruiserNum == carrierNum || cruiserNum == battleshipNum){
-                    cruiserNum = (random.nextInt(10)-1);
+                    cruiserNum = (random.nextInt(5)+1);
             }
         } while(cruiserNum == carrierNum || cruiserNum == battleshipNum);
         
@@ -48,7 +48,7 @@ public class Ships {
             if (subNum == cruiserNum ||
                 subNum == carrierNum ||
                 subNum == battleshipNum) { 
-                    subNum = (random.nextInt(10)-1);
+                    subNum = (random.nextInt(5)+1);
             }
         }
         while ( subNum == cruiserNum ||
@@ -60,7 +60,7 @@ public class Ships {
                 destroyerNum == cruiserNum ||
                 destroyerNum == carrierNum ||
                 destroyerNum == battleshipNum) { 
-                    destroyerNum = (random.nextInt(10)-1);
+                    destroyerNum = (random.nextInt(5)+1);
             }
         }
         while ( destroyerNum == subNum ||
@@ -76,23 +76,23 @@ public class Ships {
             //columns, with a random start point for each ship. The incrementing
             //number denotes the length of the ship
             int[][] allTheShips = {
-                {1, carrierNum},
-                {2, carrierNum},
-                {3, carrierNum},
-                {4, carrierNum},
-                {5, carrierNum},
-                {0, battleshipNum},
-                {1, battleshipNum},
-                {2, battleshipNum},
-                {3, battleshipNum},
-                {cruiserNum, 0},
-                {cruiserNum, 1},
-                {cruiserNum, 2},
-                {subNum, 2},
-                {subNum, 3},
-                {subNum, 4},
-                {1, destroyerNum},
-                {2, destroyerNum}
+                {6, carrierNum},
+                {7, carrierNum},
+                {8, carrierNum},
+                {9, carrierNum},
+                {10, carrierNum},
+                {9, battleshipNum},
+                {8, battleshipNum},
+                {7, battleshipNum},
+                {6, battleshipNum},
+                {cruiserNum, 6},
+                {cruiserNum, 7},
+                {cruiserNum, 8},
+                {subNum, 9},
+                {subNum, 8},
+                {subNum, 7},
+                {10, destroyerNum},
+                {9, destroyerNum}
             };
             
             return allTheShips;
@@ -100,23 +100,23 @@ public class Ships {
         
         else {
             int[][] allTheShips = {
-                {carrierNum, 1},
-                {carrierNum, 2},
-                {carrierNum, 3},
-                {carrierNum, 4},
-                {carrierNum, 5},
-                {battleshipNum, 0},
-                {battleshipNum, 1},
-                {battleshipNum, 2},
-                {battleshipNum, 3},
-                {0, cruiserNum},
-                {1, cruiserNum},
-                {2, cruiserNum},
-                {2, subNum},
-                {3, subNum},
-                {4, subNum},
-                {destroyerNum, 1},
-                {destroyerNum, 2}
+                {carrierNum, 6},
+                {carrierNum, 7},
+                {carrierNum, 8},
+                {carrierNum, 9},
+                {carrierNum, 10},
+                {battleshipNum, 7},
+                {battleshipNum, 8},
+                {battleshipNum, 9},
+                {battleshipNum, 10},
+                {7, cruiserNum},
+                {8, cruiserNum},
+                {9, cruiserNum},
+                {6, subNum},
+                {7, subNum},
+                {8, subNum},
+                {destroyerNum, 7},
+                {destroyerNum, 8}
             };
             
             return allTheShips;
