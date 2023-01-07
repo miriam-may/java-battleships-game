@@ -5,8 +5,9 @@
 package com.miriammay.battleships;
 import java.util.Random;
 /**
- *
+ * Class that sets the location of the ships
  * @author Miriam Smith
+ * @version 1.0
  */
 public class Ships {
     //CARRIER size = 5
@@ -16,7 +17,10 @@ public class Ships {
     //DESTROYER size = 2
     
     
-    
+    /**
+     * Method that creates random positions for the ships
+     * @return  the coordinates of the ship positions
+     */
     public int[][] allShips(){
         
         Random random = new Random();
